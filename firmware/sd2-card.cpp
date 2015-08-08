@@ -236,7 +236,7 @@ uint8_t Sd2Card::init(uint8_t sckRateID, uint8_t chipSelectPin) {
   return init();
 }
 
-uint8_t Sd2Card::init() {
+uint8_t Sd2Card::init(uint8_t mosiPin, uint8_t misoPin, uint8_t clockPin, uint8_t chipSelectPin) {
   mosiPin_ = A5;
   misoPin_ = A4;
   clockPin_ = A3;

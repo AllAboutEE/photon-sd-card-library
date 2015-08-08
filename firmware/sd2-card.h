@@ -136,7 +136,7 @@ class Sd2Card {
   uint8_t init(uint8_t sckRateID, uint8_t chipSelectPin);
 
   // Software SPI init
-  uint8_t init();
+  uint8_t init(uint8_t mosiPin, uint8_t misoPin, uint8_t clockPin, uint8_t chipSelectPin);
   
   void partialBlockRead(uint8_t value);
   /** Returns the current value, true or false, for partial block read. */
