@@ -19,7 +19,7 @@
  */
 
 #include "application.h"
-#include "sd-card-library/sd-card-library.h"
+#include "photon-sd-card-library/photon-sd-card-library.h"
 
 // SOFTWARE SPI pin configuration - modify as required
 // The default pins are the same as HARDWARE SPI
