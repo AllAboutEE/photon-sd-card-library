@@ -761,17 +761,17 @@ uint8_t Sd2Card::sparkSPISend(uint8_t data) {
 	else {						// SPI Mode is Software so use bit bang method
 		for (uint8_t bit = 0; bit < 8; bit++)  {
 			if (data & (1 << (7-bit)))		// walks down mask from bit 7 to bit 0
-				GPIOA->BSRR = GPIO_PinSource7; // Data High
+				GPIOA->BSRRL = GPIO_PinSource7; // Data High
 			else
-				GPIOA->BRR = GPIO_PinSource7; // Data Low
+				GPIOA->BSRRH = GPIO_PinSource7; // Data Low
 			
-			GPIOA->BSRR = GPIO_PinSource5; // Clock High
+			GPIOA->BSRRL = GPIO_PinSource5; // Clock High
 
 			b <<= 1;
 			if (GPIOA->IDR & GPIO_PinSource6)
 				b |= 1;
 
-			GPIOA->BRR = GPIO_PinSource5; // Clock Low
+			GPIOA->BSRRH = GPIO_PinSource5; // Clock Low
 		}
 	}
 	return b;
